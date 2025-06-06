@@ -218,5 +218,90 @@
             </footer>
         </div>
         <script src="script.js"></script>
+        <section id="quiz-section" style="padding: 2rem; background-color: #f9f9f9;">
+  <h2>Quiz de Conhecimentos</h2>
+  <form id="quiz-form">
+    <ol>
+      <li>
+        <p>Qual é a capital do Brasil?</p>
+        <label><input type="radio" name="q1" value="Brasília"> Brasília</label><br>
+        <label><input type="radio" name="q1" value="Rio de Janeiro"> Rio de Janeiro</label>
+      </li>
+      <li>
+        <p>Quanto é 5 + 7?</p>
+        <label><input type="radio" name="q2" value="12"> 12</label><br>
+        <label><input type="radio" name="q2" value="10"> 10</label>
+      </li>
+      <li>
+        <p>Quem escreveu 'Dom Casmurro'?</p>
+        <label><input type="radio" name="q3" value="Machado de Assis"> Machado de Assis</label><br>
+        <label><input type="radio" name="q3" value="Clarice Lispector"> Clarice Lispector</label>
+      </li>
+      <li>
+        <p>Qual é o maior planeta do sistema solar?</p>
+        <label><input type="radio" name="q4" value="Júpiter"> Júpiter</label><br>
+        <label><input type="radio" name="q4" value="Terra"> Terra</label>
+      </li>
+      <li>
+        <p>Qual elemento tem o símbolo H?</p>
+        <label><input type="radio" name="q5" value="Hidrogênio"> Hidrogênio</label><br>
+        <label><input type="radio" name="q5" value="Hélio"> Hélio</label>
+      </li>
+      <li>
+        <p>Quantos estados tem o Brasil?</p>
+        <label><input type="radio" name="q6" value="26"> 26</label><br>
+        <label><input type="radio" name="q6" value="27"> 27</label>
+      </li>
+      <li>
+        <p>Qual é o menor continente?</p>
+        <label><input type="radio" name="q7" value="Oceania"> Oceania</label><br>
+        <label><input type="radio" name="q7" value="Europa"> Europa</label>
+      </li>
+      <li>
+        <p>Qual é a fórmula da água?</p>
+        <label><input type="radio" name="q8" value="H2O"> H₂O</label><br>
+        <label><input type="radio" name="q8" value="CO2"> CO₂</label>
+      </li>
+      <li>
+        <p>Que animal é conhecido como 'rei da selva'?</p>
+        <label><input type="radio" name="q9" value="Leão"> Leão</label><br>
+        <label><input type="radio" name="q9" value="Tigre"> Tigre</label>
+      </li>
+      <li>
+        <p>Qual língua é falada no Brasil?</p>
+        <label><input type="radio" name="q10" value="Português"> Português</label><br>
+        <label><input type="radio" name="q10" value="Espanhol"> Espanhol</label>
+      </li>
+    </ol>
+    <button type="submit">Enviar</button>
+  </form>
+  <div id="quiz-result" style="margin-top: 1rem; font-weight: bold;"></div>
+        </section>
+
+    <script>
+  document.getElementById("quiz-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+    const answers = {
+      q1: "Brasília",
+      q2: "12",
+      q3: "Machado de Assis",
+      q4: "Júpiter",
+      q5: "Hidrogênio",
+      q6: "26",
+      q7: "Oceania",
+      q8: "H2O",
+      q9: "Leão",
+      q10: "Português"
+    };
+    let score = 0;
+    for (let i = 1; i <= 10; i++) {
+      const selected = document.querySelector(`input[name="q${i}"]:checked`);
+      if (selected && selected.value === answers[`q${i}`]) {
+        score++;
+      }
+    }
+    document.getElementById("quiz-result").textContent = `Você acertou ${score} de 10 perguntas.`;
+  });
+    </script>
     </body>
 </html>
